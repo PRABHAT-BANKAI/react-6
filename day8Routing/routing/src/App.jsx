@@ -7,6 +7,7 @@ import Home from "./componenets/Home";
 import About from "./componenets/About";
 import Contact from "./componenets/Contact";
 import { Link, Route, Routes } from "react-router";
+import SingleProduct from "./componenets/SingleProduct";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
       </Routes>
     </>
   );
