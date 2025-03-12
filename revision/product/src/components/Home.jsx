@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [dark, setDark] = useState(false);
 
   function handleDelete(id) {
     axios
@@ -27,8 +28,9 @@ const Home = () => {
     });
   }, []);
   return (
-    <div>
+    <div style={{backgroundColor:dark?"black":"white", color:dark?"white":"black"}}>
       <h1>Product page</h1>
+      <button onClick={() => setDark(!dark)}>Dark mode</button>
       <Link to={"/createProduct"}>
         <button>Create product </button>
       </Link>
