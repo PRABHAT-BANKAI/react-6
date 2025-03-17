@@ -3,17 +3,38 @@
     {
       "id": "2",
       "name": "nike",
+      "category":"sports",
       "price": 149.99
     },
     {
       "id": "2427",
       "name": "puma",
+      "category":"slipper",
       "price": "5000"
     },
     {
       "id": "8862",
       "name": "sketcher",
+      "category":"slipper",
       "price": "4000"
+    },
+    {
+      "id": "bd8f",
+      "name": "shoes",
+      "category":"shoes",
+      "price": "1200"
+    },
+    {
+      "id": "59a8",
+      "name": "nike",
+      "category":"sports",
+      "price": "1200000"
+    },
+    {
+      "id": "0a0c",
+      "name": "nike3",
+      "category":"slipper",
+      "price": "22000"
     }
   ]
 }
