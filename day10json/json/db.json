@@ -1,18 +1,6 @@
 {
   "product": [
     {
-      "id": "1",
-      "name": "adidas",
-      "category": "shoes",
-      "price": 1200
-    },
-    {
-      "id": "f225",
-      "name": "reebok",
-      "category": "shoes",
-      "price": "5000"
-    },
-    {
       "id": "2065",
       "name": "reebok",
       "category": "shoes",
@@ -26,9 +14,9 @@
     },
     {
       "id": "1ef8",
-      "name": "jorden",
-      "category": "shoes",
-      "price": "18000"
+      "name": "puma",
+      "category": "slipper",
+      "price": "4000"
     }
   ]
 }

@@ -5,6 +5,29 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [products, setProducts] = useState([]);
 
+  function handleDelete(id) {
+    axios
+      .delete(`http://localhost:3005/product/${id}`)
+      .then((res) => {
+        console.log(res);
+        alert("Product deleted");
+        const filterData = products.filter((product) => product.id !== id);
+        setProducts(filterData);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Failed to delete product");
+      });
+  }
+  function handleAsc() {
+    let sorthingData = products.sort((a, b) => a.price - b.price);
+    setProducts([...sorthingData]);
+  }
+
+  function handleDesc() {
+    let sorthingData = products.sort((a, b) => b.price - a.price);
+    setProducts([...sorthingData]);
+  }
   useEffect(() => {
     axios
       .get("http://localhost:3005/product")
@@ -22,6 +45,8 @@ const Home = () => {
       <Link to={"/create"}>
         <button>Create Product Data</button>
       </Link>
+      <button onClick={handleAsc}>low to high</button>
+      <button onClick={handleDesc}>high to low</button>
       <table border={""}>
         <thead>
           <tr>
@@ -43,9 +68,18 @@ const Home = () => {
                   <td>{prod.category}</td>
                   <td>{prod.price}</td>
                   <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <Link to={"/read/"+prod.id}>
+                    <Link to={"/update/" + prod.id}>
+                      {" "}
+                      <button>Edit</button>
+                    </Link>
+                    <button
+                      onClick={() => {
+                        handleDelete(prod.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <Link to={"/read/" + prod.id}>
                       <button>read</button>
                     </Link>
                   </td>

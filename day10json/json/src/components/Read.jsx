@@ -34,8 +34,6 @@ const Read = () => {
                   <th>Name</th>
                   <th>Category</th>
                   <th>Price</th>
-
-              
                 </tr>
               </thead>
               <tbody>
