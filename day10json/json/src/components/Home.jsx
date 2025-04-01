@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [showData, setShowData] = useState([]);
 
   function handleDelete(id) {
     axios
@@ -34,12 +36,29 @@ const Home = () => {
       .then((res) => {
         console.log(res);
         setProducts(res.data);
+        setShowData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
+
+
+  function handleCategory(e) {
+    let filterCategory = products.filter(
+      (prod) => prod.category == e.target.value
+    );
+
+    setShowData(filterCategory);
+  }
+
+  function handleSearchData() {
+      let filterData = products.filter((prod) =>
+    prod.name.toLowerCase().includes(search.toLowerCase())
+  );
+  setShowData(filterData);
+  }
   return (
     <div>
       <Link to={"/create"}>
@@ -47,6 +66,19 @@ const Home = () => {
       </Link>
       <button onClick={handleAsc}>low to high</button>
       <button onClick={handleDesc}>high to low</button>
+      <input
+        type="text"
+        placeholder="searching"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button onClick={handleSearchData}>Search</button>
+      <select name="" id="" onChange={handleCategory}>
+        <option value="">All</option>
+        <option value="shoes">Shoes</option>
+        <option value="slipper">Slipper</option>
+        <option value="boot">boot</option>
+      </select>
       <table border={""}>
         <thead>
           <tr>
@@ -59,8 +91,8 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {products &&
-            products.map((prod) => {
+          {showData &&
+            showData.map((prod) => {
               return (
                 <tr key={prod.id}>
                   <td>{prod.id}</td>

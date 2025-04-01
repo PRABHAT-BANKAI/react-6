@@ -17,6 +17,36 @@
       "name": "puma",
       "category": "slipper",
       "price": "4000"
+    },
+    {
+      "id": "56e5",
+      "name": "nike",
+      "category": "shoes",
+      "price": "12000"
+    },
+    {
+      "id": "160a",
+      "name": "campus",
+      "category": "shoes",
+      "price": "1299"
+    },
+    {
+      "id": "344e",
+      "name": "flite",
+      "category": "slipper",
+      "price": "1200"
+    },
+    {
+      "id": "98ac",
+      "name": "bata",
+      "category": "shoes",
+      "price": "1200"
+    },
+    {
+      "id": "f427",
+      "name": "woodland",
+      "category": "boot",
+      "price": "1200"
     }
   ]
 }
