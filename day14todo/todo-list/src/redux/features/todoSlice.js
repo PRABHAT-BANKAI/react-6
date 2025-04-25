@@ -2,6 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: JSON.parse(localStorage.getItem("todoData")) || [],
+  isAuth: localStorage.getItem("isAuth") || false,
+  userData: JSON.parse(localStorage.getItem("userData")) || [
+    { email: "batman@gmail.com", password: "batman" },
+  ],
 };
 
 export const todoSlice = createSlice({
@@ -17,13 +21,17 @@ export const todoSlice = createSlice({
       localStorage.setItem("todoData", JSON.stringify(state.value));
     },
     updateTodo: (state, action) => {
-      console.log(action,"action")
+      console.log(action, "action");
       const { index, todo } = action.payload;
       const updateData = state.value.map((item, i) =>
         i == index ? todo : item
       );
       state.value = updateData;
       localStorage.setItem("todoData", JSON.stringify(state.value));
+    },
+    setAuth: (state, action) => {
+      state.isAuth = action.payload;
+      localStorage.setItem("isAuth", action.payload);
     },
   },
 });
